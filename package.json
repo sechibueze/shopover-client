@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "https://sechibueze.github.io/shopover",
+  "homepage": "https://sechibueze.github.io/shopover-client",
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
