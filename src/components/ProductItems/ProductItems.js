@@ -5,10 +5,7 @@ import { getProductItems } from '../../_actions/ProductActions';
 import ProductCard from '../ProductCard/ProductCard';
 import Title from '../Title/Title';
 
-const ProductItems = ({
-  getProductItems,
-  productItems
-}) => {
+const ProductItems = ({ getProductItems, productItems, title }) => {
 
   useEffect(() => {
     let filter = { visibility: true}
@@ -17,10 +14,10 @@ const ProductItems = ({
 
   return ( 
     <section>
-      <Title title='Featured Products' />
+      <Title title={ title ? title : 'Featured Products'} />
       <div className="grid-wrapper">
         {
-          productItems && productItems.length > 0 ? productItems.map((product, idx) => <ProductCard key={idx} product={product} />) : "Empty Product"
+          productItems && productItems.length > 0 ? productItems.map((product, idx) => <ProductCard key={idx} product={product} />) : ""
         }
       </div>
     </section>

@@ -11,7 +11,7 @@ const Modal = ({
   return (
     <div className={`modal ${isOpen? 'show' : ''}`}>
         <div className="modal-container">
-          <span className="modal-close fa fa-close" onClick={() => dismiss()}></span>
+          <span className="modal-close fa fa-times" onClick={() => dismiss()}></span>
           <div className="modal-header">
             <h1> { title ? title : APP_NAME} </h1>
           </div>

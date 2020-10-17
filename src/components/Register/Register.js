@@ -9,6 +9,7 @@ import { setAlert } from '../../_actions/AlertActions';
 import { registerUser } from '../../_actions/AuthActions';
 import { REGISTER_FAIL } from '../../_actions/types';
 import Alert from '../Alert/Alert';
+
 const Register = ({
   isAuthenticated,
   setAlert,
@@ -46,20 +47,20 @@ const Register = ({
   return ( 
     <Fragment>
         <form className="form container" onSubmit={handleSignup} name="signup-form" id="signup-form">
-          <h2 className="title">  <span className='fa fa-users fa-2x' /> &nbsp; Signup</h2>
-          <p className="sub-title">Join our community of passionate learners</p>
-          <sup>*</sup> means Required
+          <h2 className="title">  <span className='icon fa fa-users' />  Signup</h2>
+          <p className="sub-title">Signup to enjoy exciting offers and best deals</p>
+          <small><sup>*</sup> means Required</small>
        
           <Alert origin={REGISTER_FAIL} />
 
           <div className="form-group">
             <label htmlFor="firstname">Firstname<sup>*</sup></label>
-            <input type="text" onChange={handleChange} name="firstname" value={firstname} className="form-control" id="firstanem" placeholder="John Smith" />
+            <input type="text" onChange={handleChange} name="firstname" value={firstname} className="form-control" id="firstname" placeholder="John" />
           </div>
 
           <div className="form-group">
             <label htmlFor="lastname">Lastname<sup>*</sup></label>
-            <input type="text" onChange={handleChange} name="lastname" value={lastname} className="form-control" id="firstanem" placeholder="John Smith" />
+            <input type="text" onChange={handleChange} name="lastname" value={lastname} className="form-control" id="lastname" placeholder="Smith" />
           </div>
 
           <div className="form-group">
@@ -80,7 +81,7 @@ const Register = ({
               placeholder="Confirm password" />
           </div>
 
-          <button type="submit" id="signup-btn" className="btn btn-primary btn-md"> <span className='fa fa-user' /> &nbsp; Signup </button>
+          <button type="submit" id="signup-btn" className="btn btn-reverse "> <span className='icon fa fa-users' />  Signup </button>
 
           <p className="my-2">Already has an account? <Link to="/login">Login</Link> </p>
         </form>

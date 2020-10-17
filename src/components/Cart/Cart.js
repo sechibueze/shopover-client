@@ -54,12 +54,7 @@ const Cart = ({currentUser, setAlert, cartItems, history }) => {
           <span   class="cart-order-form">
             <input type="hidden" value={calculateTotalPay()} />
             <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
+            
             <tbody>
               
               <tr>
@@ -71,7 +66,7 @@ const Cart = ({currentUser, setAlert, cartItems, history }) => {
             <button onClick={() => handlePayment()} class="cart-order-btn"> Place Order </button>
 
             {
-              paymentUrl && <a href={paymentUrl}> Pay NOW </a>
+              paymentUrl && <a style={{display: 'block', marginTop: '1rem'}} class="btn btn-reverse" href={paymentUrl}> Pay NOW </a>
             }
 
           {/* </form> */}

@@ -17,22 +17,24 @@ const Navbar = ({ isAuthenticated, cartItems, logout }) => {
         </Link>
 
         <label htmlFor="navlink-control" className="hamburger fa fa-bars fa-2x"/>
-        <div className="navlinks">
+
+
+        <div className="navlinks"> 
           <Link to="/" className="navlink">Home</Link>
-          <Link to="/shop" className="navlink">Shop</Link>
-          <Link to="/cart" className="navlink">Cart  { cartItems.length > 0 && (<sup> <span className="badge badge-primary"> { cartItems.length } </span> </sup>) } </Link>
+          <Link to="/shop" className="navlink"> <span className="icon fas fa-store-slash" />Shop</Link>
+          <Link to="/cart" className="navlink"> <span className="icon fa fa-shopping-cart" />Cart  { cartItems.length > 0 && (<sup> <span className="badge badge-primary"> { cartItems.length } </span> </sup>) } </Link>
           {
             isAuthenticated ? (
               <Fragment>
-                <Link to="/dashboard" className="navlink fa fa-user" />
-                <span onClick={() => logout()} className="span">Logout</span>
+                <Link to="/dashboard" className="navlink"> <span className="icon fa fa-user" /> Account</Link>
+                {/* <span onClick={() => logout()} > <span className="fa fa-sign-out"/> Logout</span> */}
               </Fragment>
 
             ) : (
               
               <Fragment>
-                <Link to="/register" className="navlink">Signup</Link>
-                <Link to="/login" className="navlink">Login</Link>
+                <Link to="/register" className="navlink"> <span className="icon fa fa-users" />  Signup</Link>
+                <Link to="/login" className="navlink"> <span className="icon fa fa-sign-in-alt" /> Login</Link>
               </Fragment>
             )
           }

@@ -2,7 +2,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import { connect }  from 'react-redux';
 import PropTypes from 'prop-types';
 import AuthContainer from '../AuthContainer';
-import Modal from '../Modal';
 import { loadUsers, deleteUsers } from '../../_actions/AuthActions';
 
 
@@ -33,14 +32,16 @@ const UserManager = ({currentUser, loadUsers, deleteUsers, userData, prevUser })
       </div>
      
     
-          <table>
+          <table className="table">
             <thead>
               <tr>
-                <td> S/N </td>
-                <td> Firstname </td>
-                <td> Lastname </td>
-                
-                <td> Delete </td>
+                <th> S/N </th>
+                <th> Image </th>
+                <th> Email </th>
+                <th> Firstname </th>
+                <th> Lastname </th>
+                <th> Role(s) </th>
+                <th> Delete </th>
               </tr>
             </thead>
             <tbody>
@@ -48,14 +49,17 @@ const UserManager = ({currentUser, loadUsers, deleteUsers, userData, prevUser })
 
               {
                 userData.length > 0  && userData.map((user, idx) => {
-                  let {_id, firstname, lastname } = user;
+                  let {_id, profileImage, roles, email, firstname, lastname } = user;
                   
                   return (
                     <tr>
                       <td> { ++idx} </td>
+                      <td> <img  style={{ width: '32px', height: '32px'}} src={ profileImage ? profileImage : 'https://picsum.photos/32'} alt="Member profile ID" /> </td>
+                      <td> { email && email} </td>
                       <td> { firstname && firstname} </td>
                       <td> { lastname && lastname} </td>
-                      <td> <span className="fa fa-close" onClick={() => handleDeleteUserById(_id)} /> </td>
+                      <td> { roles && roles.join(', ')} </td>
+                      <td> <span className="fa fa-times" onClick={() => handleDeleteUserById(_id)} /> </td>
                     </tr>
                   )
                 

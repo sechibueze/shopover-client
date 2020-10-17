@@ -15,7 +15,7 @@ const AuthSidebar = ({
   return (
     <Fragment>
       <aside className="auth-sidebar">
-        <label htmlFor="auth-sidebar-control" className="auth-sidebar-close fa fa-close" />
+        <label htmlFor="auth-sidebar-control" className="auth-sidebar-close fa fa-times" />
         <header className="sidebar-header">
           <Link to='/'>
             <span className="sidebar-icon fa fa-lightbulb-o fa-2x" />
@@ -24,7 +24,7 @@ const AuthSidebar = ({
         </header>
         <ul className="sidebar-actions">
           <li>
-            <Link to='/product-manager' className="auth-sidebar-link"> <i className="fa fa-book-open" /> &nbsp;  Products</Link>
+            <Link to='/product-manager' className="auth-sidebar-link"> <i className="fas fa-wallet" /> &nbsp;  Products</Link>
           </li>
 
           {
@@ -32,10 +32,10 @@ const AuthSidebar = ({
 
               <Fragment>
                 <li>
-                  <Link to='/collections' className="auth-sidebar-link"> <span className="fas fa-book-reader" /> &nbsp; Collections</Link>
+                  <Link to='/collections' className="auth-sidebar-link"> <span className="fa fa-tags" /> &nbsp; Collections</Link>
                 </li>
                 <li>
-                  <Link to='/user-manager' className="auth-sidebar-link"> <span className="fas fa-book-reader" /> &nbsp; User Admin</Link>
+                  <Link to='/user-manager' className="auth-sidebar-link"> <span className="fa fa-users" /> &nbsp; User Admin</Link>
                 </li>
               </Fragment>
 

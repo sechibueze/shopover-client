@@ -10,19 +10,27 @@
   list-style-type: none;
   resize: none;
 }
-
-body{
-  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+html, body{
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: 'Montserrat', Roboto, Oxygen, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+
 $primary-color: #ff153b;
 $light-color: #fff1f1;
 $success-color: #28a745;
 $danger-color: #dc3545;
 $dark-color: #555;
 $mobile-breakpoint: 560px;
+$tablet-breakpoint: 560px;
 $auth-sidebar-width: 13rem;
-$auth-sidebar-width-alt: -13rem;
+$auth-sidebar-width-alt: -13rem ; //* $auth-sidebar-width;
 
+.icon{
+  margin-right: .2rem;
+  color: $primary-color;
+}
 [class *= 'col-']{
   flex-basis: auto;
 }
@@ -75,7 +83,7 @@ $unit: 8.33%;
       border-radius: .2rem;
       font-size: 1.1rem;
       letter-spacing: 1px;
-      line-height: 2.4;
+      line-height: 2.1;
       
     }
 
@@ -91,8 +99,9 @@ $unit: 8.33%;
 
 .title{
   font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: .5rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  color: $primary-color;
 }
 .sub-title{
   line-height: 1.5;
@@ -169,21 +178,41 @@ $unit: 8.33%;
 }
 
 
+.btn{
+  padding: .8rem 1.2rem;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: all 0.4s;
+  &-primary{
+    background-color: $primary-color;
+    color: $light-color;
+  }
+  &-reverse{
+    background-color: $light-color;
+    color: $primary-color;
+  }
+  &:hover{
+    opacity: .8;
+  }
+}
+
+
 // Over write default scroll bar
     .grid-wrapper::-webkit-scrollbar{
       width: 100%;
       height: 1rem;
     }
     .grid-wrapper::-webkit-scrollbar-track{
-      background-color: $dark-color;
+      background-color: $light-color;
       border-radius: .6rem;
     }
 
     .grid-wrapper::-webkit-scrollbar-thumb{
-      background-color: $light-color;
+      background-color: $primary-color;
       border: 1px solid $dark-color;
       border-radius: .6rem;
-      height: .25rem;
+      height: .125rem;
     }
 .grid-wrapper{
   width: 100%;
@@ -235,6 +264,7 @@ $unit: 8.33%;
 .logo-name{
   font-size: 2rem;
   font-weight: 600;
+  color: $primary-color;
 
 }
 .navlinks {
@@ -245,8 +275,8 @@ $unit: 8.33%;
 
   .navlink{
     padding: 0rem .75rem;
-    color: $dark-color;
-    font-size: 1.25rem;
+    color: $primary-color;
+    font-size: 1rem;
     transition: color .5s ease-in;
 
     &:hover{
@@ -266,6 +296,7 @@ $unit: 8.33%;
 // Hide the hamburger menu icon on large screens 
 .hamburger{
   display: none;
+  color: $primary-color;
   line-height: inherit;
   // Only show the hamburger on small screens
   @media screen and (max-width: $mobile-breakpoint){
@@ -301,6 +332,93 @@ $unit: 8.33%;
 /********************************************************
 *************STOP NAVBAR *******************************
 ****************************************************************/
+/********************************************************
+*************START BANNER *******************************
+****************************************************************/
+
+.page-header{
+  background-color: $primary-color;
+  padding: 3rem 0rem;
+  width: 100%;
+  display: block;
+
+}
+.banner{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  column-gap: .8rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      display: block;
+    }
+  }
+}
+.banner-caption{
+  width: 50%;
+  color: $light-color;
+  p{
+    font-size: .8rem;
+    color: $light-color;
+  }
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      display: block;
+      width: 100%;
+    }
+  }
+}
+.banner-hero{
+  
+  color: $light-color;
+  background-color: $primary-color;
+  opacity: .4;
+  background-image: url(https://picsum.photos/450/900);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-origin: border-box;
+  h1{
+    z-index: 10;
+    font-size: 3rem;
+    color: $light-color;
+    text-align: center;
+    border: 5px solid #673ab7;
+  }
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      background-size: cover;
+      height: 16rem;
+    }
+  }
+}
+.banner-cta{
+  margin-top: 2rem;
+  line-height: 2.5;
+  display: block;
+  width: 100%;
+
+  a{
+    &:first-of-type{
+      border: 1px solid $light-color;
+      margin-right: 1.5rem;
+    }
+    @media screen and (max-width: $tablet-breakpoint){
+      &{
+        display: block;
+        width: 100%;
+        padding: .5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+
+  
+}
+/*****************
+*************STOP BANNER *******************************
+****************************************************************/
 
 /********************************************************
 ************* START PRODUCT CARD *******************************
@@ -331,16 +449,17 @@ $unit: 8.33%;
   .product-card-image{
     text-align: center;
     width: 100%;
+    max-height: 8.7rem;
     display: block;
 
   }
 
   .product-title{
     display: block;
-    text-align: center;
-    padding: .75rem 0rem;
+    // text-align: center;
+    // padding: .5rem 0rem;
     margin:  auto;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 400;
 
   }
@@ -398,8 +517,8 @@ table.table.cart-table{
 #signup-btn, #login-btn{
   padding: 1rem 1.75rem;
   text-align: center;
-  color: $light-color;
-  background-color: $primary-color;
+  // color: $light-color;
+  // background-color: $primary-color;
   border-radius: 5px;
   margin-bottom: 1.75rem;
 
@@ -507,8 +626,8 @@ table.table.cart-table{
      }
      .auth-sidebar-handle{
        position: absolute;
-       top: 1rem;
-       left: 1rem;
+       top: 3.5rem;
+       left: 2rem;
        cursor: pointer;
      }
      #auth-sidebar-control:checked ~ .auth-main {
@@ -533,8 +652,10 @@ table.table.cart-table{
        top: 0rem;
        right: 0rem;
        padding: .2rem;
-       color: $dark-color;
-       background-color: transparent;
+       width: 1.02rem;
+       height: 1.02rem;
+      //  color: $primary-color;
+      //  background-color: $light-color;
        cursor: pointer;
      }
      .sidebar-header{
@@ -594,7 +715,46 @@ table.table.cart-table{
       transition: margin .6s ease-in-out;
     }
     .auth-wrapper{
-      width: 98%;
+      width: 85%;
       display: block;
+      margin: auto;
       text-align: center;
+      padding-top: 1.5rem;
+      overflow-x: auto;
     }
+
+
+// Tables
+.editable{
+  background-color: $primary-color;
+  color: $light-color;
+}
+.table{
+  width: 100%;
+  
+}
+thead{
+  font-weight: bolder;
+}
+th{
+  background-color: $primary-color;
+  color: $light-color;
+}
+tr:hover{
+  background-color: #ddd;
+}
+tr:nth-child(even){
+  background-color: #CCC;
+}
+th{
+  height: 2.5rem;
+  text-align: left;
+}
+td{
+  vertical-align: middle;
+}
+th, td{
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1ps solid #ddd;
+}

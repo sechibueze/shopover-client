@@ -52,7 +52,7 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
   return ( 
     <AuthContainer>
       <div className="auth-action">
-        <span className="" onClick={() => handleAddProductRequest(true)}> Add Product</span>
+        <span className="" onClick={() => handleAddProductRequest(true)}> <span className="icon fa fa-plus" /> Add Product</span>
       </div>
       {
         shouldAddProduct && 
@@ -68,21 +68,18 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
         </Modal>
       }
 
-      <table>
+      <table className="table">
         <thead>
           <tr>
-            <td> S/N </td>
-            <td> Title </td>
-            <td> Price </td>
-           
-            <td> Edit </td>
-           
-            <td> Visibility </td> 
+            <th> S/N </th>
+            <th> Title </th>
+            <th> Product Image </th>
+            <th> Price </th>      
+            <th> Edit </th>
+            <th> Visibility </th> 
             {
-              isAdmin()  && <td> Delete </td>
-            }
-            
-            
+              isAdmin()  && <th> Delete </th>
+            }         
           </tr>
         </thead>
         <tbody>
@@ -90,27 +87,28 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
 
           {
             productItems.length > 0 && productItems.map((product, idx) => {
-              let {_id, title, price, owner, visibility } = product;
+              let {_id, title, productImage, price, owner, visibility } = product;
               const shouldUserEdit = owner._id === currentUser._id ? true : false ;
               
               return (
                 <tr>
                   <td> { ++idx} </td>
                   <td> { title && title} </td>
+                  <td> <img style={{ width: '32px', height: '32px'}} src={productImage ? productImage : 'https://picsum.photos/32'} alt="product item" /> </td>
                   <td> { price && price} </td>
                                       
-                  <td> <span className="fa fa-edit" onClick={() => handleEditProductRequest(product, shouldUserEdit)} /> </td>
+                  <td > <span className={`fa fa-${ shouldUserEdit ? 'edit': 'exclamation-circle'}`} onClick={() => handleEditProductRequest(product, shouldUserEdit)} /> </td>
                   
                  
                   {
-                    isAdmin() ? (<td> <span onClick={() => toggleProductVisibility(_id)}> {visibility ? 'HIDE': 'SHOW'} </span></td>) 
-                    : (<td> <span> {visibility ? 'HIDE': 'SHOW'} </span></td>)
+                    isAdmin() ? (<td> <span className={`icon fa fa-eye${ visibility ? '-slash': '' }`}  onClick={() => toggleProductVisibility(_id)}/> </td>) 
+                    : (<td> <span className={`icon fa fa-eye${ visibility ? '-slash': '' }`} /> </td>)
                     
                   
                   }
                   {
                     isAdmin()   && 
-                    <td> <span className="fa fa-close" onClick={() => handleDeleteProduct(_id)} /> </td>
+                    <td> <span className="icon fa fa-times" onClick={() => handleDeleteProduct(_id)} />  </td>
                     
                   }
                 </tr>

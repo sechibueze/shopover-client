@@ -33,9 +33,9 @@ const Login = ({
   return ( 
     <Fragment>
         <form className="form container" onSubmit={handleLogin} name="login-form" id="login-form">
-          <h2 className="text-lead">  <span className='fa fa-users' /> &nbsp; Login </h2>
-          <p className="text-sub">Join our community of passionate learners</p>
-          <sup>*</sup> means Required
+          <h2 className="text-lead">  <span className='fa fa-sign-in-alt' /> &nbsp; Login </h2>
+          <p className="text-sub">Login to manage products and shop with ease</p>
+          <small><sup>*</sup> means Required</small>
           <Alert origin={LOGIN_FAIL} />
           <div className="form-group">
             <label htmlFor="email">Email<sup>*</sup></label>
@@ -49,7 +49,7 @@ const Login = ({
               placeholder="minimun of 8 characters" />
           </div>
 
-          <button type="submit" id="login-btn" className="btn btn-primary btn-md"> <span className='fa fa-user' /> &nbsp; Login </button>
+          <button type="submit" id="login-btn" className="btn btn-primary btn-md"> <span className='fa fa-sign-in-alt' /> &nbsp; Login </button>
 
           <p className="my-2">Don't have an account? <Link to="/register">Signup</Link> </p>
         </form>

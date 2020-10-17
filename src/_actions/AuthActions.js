@@ -91,7 +91,7 @@ export const registerUser = userData => dispatch => {
 
     })
     .catch(e => {
-    
+      
       handleResponseErrors(e, REGISTER_FAIL)
     });
 };
