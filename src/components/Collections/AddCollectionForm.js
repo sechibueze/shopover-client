@@ -49,7 +49,7 @@ const AddCollectionForm = ({ dismiss, createCollection, newCollection }) => {
         <textarea type="text"  value={description}  onChange={handleChange}  className="form-control" name="description" id="description" placeholder="ENter a short summary" required />
       </div>
       
-      <button type="submit" className="btn btn-primary"> Create Collection</button>
+      <button type="submit" className="btn btn-primary icon fa fa-plus"> Create Collection</button>
     </form>
    );
 }

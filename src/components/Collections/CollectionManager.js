@@ -54,7 +54,7 @@ const CollectionManager = ({ getCollections, resetCollection,  deleteCollectionB
   return ( 
     <AuthContainer>
       <div className="auth-action">
-        <span className="" onClick={() => setCanAddCollection(true)}> Add Collection</span>
+        <span className="icon fa fa-plus" onClick={() => setCanAddCollection(true)}> Add Collection</span>
       </div>
       {
         canAddCollection && 
@@ -70,14 +70,14 @@ const CollectionManager = ({ getCollections, resetCollection,  deleteCollectionB
         </Modal>
       }
 
-      <table>
+      <table className="table">
         <thead>
           <tr>
-            <td> S/N </td>
-            <td> Title </td>
-            <td> Description </td>
-            <td> Edit </td>
-            <td> Delete </td>
+            <th> S/N </th>
+            <th> Title </th>
+            <th> Description </th>
+            <th> Edit </th>
+            <th> Delete </th>
           </tr>
         </thead>
         <tbody>

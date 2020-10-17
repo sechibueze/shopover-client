@@ -88,7 +88,7 @@ const AddProductForm = ({ dismiss, addProduct, newProduct }) => {
         <small> Enter comma separetd list </small>
       </div>
 
-      <button type="submit" className="btn btn-primary"> Add Product</button>
+      <button type="submit" className="btn btn-reverse fa fa-plus"> <span className="icon "/> Add Product</button>
     </form>
    );
 }

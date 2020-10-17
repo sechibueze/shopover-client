@@ -90,7 +90,7 @@ const EditProductForm = ({ productRecord, dismiss, updateProductById, productUpd
         <small> Enter comma separetd list </small>
       </div>
 
-      <button type="submit" className="btn btn-primary"> Update Product</button>
+      <button type="submit" className="btn btn-primary fa fa-save"> &nbsp;  Update Product</button>
     </form>
    );
 }

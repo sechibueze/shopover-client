@@ -32,17 +32,17 @@ const CartItems = ({
           <tbody>
             {
               cartItems.map((item, idx) => {
-                const {_id, title, price, quantity} = item;
+                const {_id, title, productImage, price, quantity} = item;
                 
                 return (
                   <tr>
                     <td> { ++idx} </td>
-                    <td> <img src="./img/products/product1.jpg" style={{width: '35px', height: '35px'}} /> </td>
+                    <td> <img src={ productImage } style={{width: '35px', height: '35px'}} /> </td>
                     <td> { title && title } </td>
                     <td> { price && price } </td>
                     <td> { quantity && quantity }  </td>
-                    <td> <input type="number" min="1" onChange={(e) => updateQuantity(e, _id)} style={{width: '35px'}} /> </td>
-                    <td> <span className="fa fa-close" onClick={() => removeItemFromCart(_id)} /> </td>
+                    <td> <input type="number" value={ quantity && quantity } min="1" onChange={(e) => updateQuantity(e, _id)} style={{width: '35px'}} /> </td>
+                    <td> <span className="fa fa-times" onClick={() => removeItemFromCart(_id)} /> </td>
                     <td> {  parseFloat(price) * parseInt(quantity) }  </td>
                   
                   </tr>

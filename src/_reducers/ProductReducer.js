@@ -30,7 +30,7 @@ export default (state=initialState, action) => {
     case TOGGLE_PRODUCT_VISIBILITY:
       return {
         ...state,
-        productVisibilitygit : payload
+        productVisibility : payload
       };
     case RESET_PRODUCT:
       return {

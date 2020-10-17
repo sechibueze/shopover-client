@@ -47,7 +47,7 @@ const EditCollectionForm = ({ dismiss, collectionId, prevData, updateCollectionB
         <textarea type="text"  value={description}  onChange={handleChange}  className="form-control" name="description" id="description"  />
       </div>
       
-      <button type="submit" className="btn btn-primary"> Update Collection</button>
+      <button type="submit" className="btn btn-primary fa fa-save"> &nbsp; Update Collection</button>
       
     </form>
    );
