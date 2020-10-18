@@ -21,6 +21,6 @@ jobs:
         with:
           args: deploy --only hosting
         env:
-          CI: false
+          CI: ""
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
 
