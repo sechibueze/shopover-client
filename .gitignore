@@ -10,9 +10,13 @@
 /coverage
 
 ProjectTracker.MD
+/.firebase
+firebase.json
+.firebaserc
+# /buildgit
 
 # production
-# /build
+/build
 
 # misc
 .DS_Store

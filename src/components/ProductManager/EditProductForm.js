@@ -45,7 +45,7 @@ const EditProductForm = ({ productRecord, dismiss, updateProductById, productUpd
   };
   
   
-  const {title, price, category, description, tags, productImage} = data;
+  const {title, price, description, tags, productImage} = data;
 
   return ( 
     <form className="form" onSubmit={handleSubmit}>

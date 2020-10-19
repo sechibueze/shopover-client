@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect }  from 'react-redux';
 import PropTypes from 'prop-types';
 import AuthContainer from '../AuthContainer';
@@ -77,6 +77,7 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
             <th> Price </th>      
             <th> Edit </th>
             <th> Visibility </th> 
+            {/* Only Admins can delete a product */}
             {
               isAdmin()  && <th> Delete </th>
             }         
@@ -102,9 +103,8 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
                  
                   {
                     isAdmin() ? (<td> <span className={`icon fa fa-eye${ visibility ? '-slash': '' }`}  onClick={() => toggleProductVisibility(_id)}/> </td>) 
-                    : (<td> <span className={`icon fa fa-eye${ visibility ? '-slash': '' }`} /> </td>)
+                    : (<td> <span title="Product needs verification before going live. Contact Admin to make it quicker" className={`icon fa fa-exclamation-circle`} /> </td>)
                     
-                  
                   }
                   {
                     isAdmin()   && 

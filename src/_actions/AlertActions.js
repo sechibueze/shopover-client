@@ -23,7 +23,7 @@ export const clearAlert = (alertId = null) => dispatch => {
 };
 
 export const handleResponseErrors = (err, origin = "", type = 'danger') => dispatch => {
-    console.log('err : ', err, origin)
+    
     let payload = {
               alertId: v4(),
               // alertText: e,
@@ -34,7 +34,7 @@ export const handleResponseErrors = (err, origin = "", type = 'danger') => dispa
     let alertText = err.toString()
     if (err.response) {
       if (err.response.status === 422) {
-        alert = err.response.data.errors
+        alertText = err.response.data.errors
       } else {
         
             alertText = typeof err.response.data === 'object' ? err.response.data.error : err.response.data;
