@@ -25,7 +25,7 @@ const Home = () => {
           </div>
         </div>
       </header>
-      <ProductItems title="Best Selling..." />  
+      <ProductItems title="Best Selling...|" count="3"/>  
     </Fragment>
     
    );

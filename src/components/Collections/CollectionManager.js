@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect }  from 'react-redux';
 import PropTypes from 'prop-types';
 import AuthContainer from '../AuthContainer';
@@ -16,10 +16,9 @@ const CollectionManager = ({ getCollections, resetCollection,  deleteCollectionB
     canEditCollection: false,
     collectionInfo: {}
   });
-
-  useEffect(() => {
-    getCollections();
-  } , [newCollection, collectionEdited, collectionDeleted]);
+  useEffect( getCollections,
+  [newCollection, collectionEdited, collectionDeleted] );
+  
 
   const handleCanAddCollectionRequest = (status) => {
     setCanAddCollection(status);
@@ -94,7 +93,7 @@ const CollectionManager = ({ getCollections, resetCollection,  deleteCollectionB
                   <td> { description && description.slice(0, 20)} </td>
                   {/* <td> { price && price} </td> */}
                   <td> <span className="fa fa-edit" onClick={() => startEditCollectionRequest(_id, collection)} /> </td>
-                  <td> <span className="fa fa-close" onClick={() => handleDeleteCollection(_id)} /> </td>
+                  <td> <span className="fa fa-times" onClick={() => handleDeleteCollection(_id)} /> </td>
                 </tr>
               )
             

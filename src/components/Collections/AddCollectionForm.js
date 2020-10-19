@@ -11,13 +11,9 @@ const AddCollectionForm = ({ dismiss, createCollection, newCollection }) => {
     title: '',
     description: '',
   });
+  const dismissOnNewCollection = () =>  {if(newCollection !== null) dismiss()};
+  useEffect(dismissOnNewCollection , [newCollection]);
 
-  useEffect(() => {
-    if(newCollection !== null) dismiss();
-    }, [newCollection]);
-    
-  
-  
   const handleChange = ({ target}) => {
     const { name, value} = target;
     setData(prev => ({

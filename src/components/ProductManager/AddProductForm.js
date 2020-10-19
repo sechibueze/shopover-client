@@ -16,10 +16,8 @@ const AddProductForm = ({ dismiss, addProduct, newProduct }) => {
     category: '',
     tags: ''
   });
-
-  useEffect(() => {
-    if(newProduct !== null) dismiss();
-    }, [newProduct]);
+  const dismissOnNewProduct = () => {if(newProduct !== null) dismiss()};
+  useEffect(dismissOnNewProduct, [newProduct]);
     
   useEffect(() => {
     const url = `${ baseURL }/api/collections`;
@@ -43,7 +41,7 @@ const AddProductForm = ({ dismiss, addProduct, newProduct }) => {
   };
   
   
-  const {title, price, category, description, tags, productImage} = data;
+  const {title, price,  description, tags, productImage} = data;
 
   return ( 
     <form className="form" onSubmit={handleSubmit}>

@@ -19,9 +19,8 @@ const EditProductForm = ({ productRecord, dismiss, updateProductById, productUpd
     tags: productRecord.tags ? productRecord.tags.join(',') : '',
   });
 
-  useEffect(() => {
-    if(productUpdated !== null) dismiss();
-    }, [productUpdated]);
+  const dismissAfterEditingProduct = () => {if(productUpdated !== null) dismiss()};
+  useEffect(dismissAfterEditingProduct, [productUpdated]);
     
   useEffect(() => {
     const url = `${ baseURL }/api/collections`;
@@ -45,7 +44,7 @@ const EditProductForm = ({ productRecord, dismiss, updateProductById, productUpd
   };
   
   
-  const {title, price, category, description, tags, productImage} = data;
+  const {title, price, description, tags, productImage} = data;
 
   return ( 
     <form className="form" onSubmit={handleSubmit}>

@@ -5,19 +5,20 @@ import { getProductItems } from '../../_actions/ProductActions';
 import ProductCard from '../ProductCard/ProductCard';
 import Title from '../Title/Title';
 
-const ProductItems = ({ getProductItems, productItems, title }) => {
+const ProductItems = ({ getProductItems, productItems, title, count }) => {
 
-  useEffect(() => {
-    let filter = { visibility: true}
-    getProductItems(filter);
-  }, [])
+
+  let filter = { visibility: true}
+  const getProductItemByFilter = () => {getProductItems(filter)}
+  useEffect( getProductItemByFilter , [])
+  const numItemsToDisplay = count ? count : productItems.length;
 
   return ( 
     <section>
       <Title title={ title ? title : 'Featured Products'} />
-      <div className="grid-wrapper">
+      <div className="grid-wrapper" style={{justifyContent: "center"}}>
         {
-          productItems && productItems.length > 0 ? productItems.map((product, idx) => <ProductCard key={idx} product={product} />) : ""
+          productItems && productItems.length > 0 ? productItems.slice(0, numItemsToDisplay).map((product, idx) => <ProductCard key={idx} product={product} />) : ""
         }
       </div>
     </section>

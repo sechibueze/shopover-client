@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import { connect }  from 'react-redux';
 import PropTypes from 'prop-types';
 import AuthContainer from '../AuthContainer';
@@ -8,11 +8,10 @@ import { loadUsers, deleteUsers } from '../../_actions/AuthActions';
 
 const UserManager = ({currentUser, loadUsers, deleteUsers, userData, prevUser }) => {
   
+  const filterID = currentUser.roles.includes('admin') ? null : currentUser._id;
+  const loadUserByFilter = () => loadUsers(filterID);
 
-  useEffect(() => {
-    const filterID = currentUser.roles.includes('admin') ? null : currentUser._id;
-    loadUsers(filterID);
-  } , [ prevUser]);
+  useEffect(loadUserByFilter, [ prevUser]);
 
   const handleDeleteUserById = id => {
     if (window.confirm('Are you sure?' + id)) {
@@ -27,8 +26,8 @@ const UserManager = ({currentUser, loadUsers, deleteUsers, userData, prevUser })
   
   return ( 
     <AuthContainer>
-      <div className="auth-action">
-        <span onClick={() => handleFlushAllUsers()}> Fluash ALl { userData.length } </span>
+      <div className="auth-action" style={{marginTop: "1rem"}}>
+        <span onClick={() => handleFlushAllUsers()}> <span className="icon fa fa-trash" /> Fluash ALL { userData.length } </span>
       </div>
      
     

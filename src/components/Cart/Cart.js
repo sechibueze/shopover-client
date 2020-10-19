@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, {  useState } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Alert from '../Alert/Alert';
@@ -16,7 +15,7 @@ const Cart = ({currentUser, setAlert, cartItems, history }) => {
     let total = 0;
 
     cartItems.map(({ price, quantity}) => {
-      total += parseFloat(price) * parseInt(quantity);
+      return total += parseFloat(price) * parseInt(quantity);
     });
 
     return total;

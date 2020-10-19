@@ -37,7 +37,7 @@ const CartItems = ({
                 return (
                   <tr>
                     <td> { ++idx} </td>
-                    <td> <img src={ productImage } style={{width: '35px', height: '35px'}} /> </td>
+                    <td> <img src={ productImage } alt="product visual" style={{width: '35px', height: '35px'}} /> </td>
                     <td> { title && title } </td>
                     <td> { price && price } </td>
                     <td> { quantity && quantity }  </td>
