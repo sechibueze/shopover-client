@@ -18,7 +18,7 @@ const AuthSidebar = ({
         <label htmlFor="auth-sidebar-control" className="auth-sidebar-close fa fa-times" />
         <header className="sidebar-header">
           <Link to='/'>
-            <span className="sidebar-icon fa fa-lightbulb-o fa-2x" />
+            <span className="sidebar-icon fas fa-shopping-basket" />
             <span className="sidebar-name"> { APP_NAME} </span>
           </Link>
         </header>
