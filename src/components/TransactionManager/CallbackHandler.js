@@ -5,24 +5,22 @@ import { baseURL } from '../../_actions/types';
 
 const CallbackHandler = ({ location }) => {
   const [hasCompleted, setHasCompleted] = useState(false)
-  const getPaystackTransactionReference = () => {
-    const query = new URLSearchParams(location.search);
-    return query.get('reference');
-  }
+  const { search } = location;
 
   
     useEffect(() => {
-      const reference = getPaystackTransactionReference();
+      const query = new URLSearchParams(search);
+      const reference = query.get('reference');
+
       const url = `${ baseURL}/api/transactions/verify`;
       const body = { reference };
       axios
         .post(url, body)
         .then(({ data }) => {
-          console.log('CallbackHandler data', data)
           setHasCompleted(true)
         })
         .catch(e => {})
-    }, [])
+    }, [search])
 
   return (
     <Fragment>

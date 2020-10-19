@@ -14,11 +14,10 @@ const ProductManager = ({currentUser, getProductItems, toggleProductVisibility, 
     productItemToEdit: '',
     canEdit: false
   });
-
-  useEffect(() => {
-    const filter = currentUser.roles.includes('admin') ? '' : { owner: currentUser._id}
-    getProductItems(filter);
-  } , [newProduct, productUpdated, productDeleted, productVisibility]);
+  const filter = currentUser.roles.includes('admin') ? '' : { owner: currentUser._id};
+  const getProductByFilter = () => getProductItems(filter);
+  
+  useEffect(getProductByFilter , [newProduct, productUpdated, productDeleted, productVisibility]);
 
   const isAdmin = () => {
     return currentUser.roles.includes('admin');

@@ -12,10 +12,8 @@ const EditCollectionForm = ({ dismiss, collectionId, prevData, updateCollectionB
     title: prevData.title ? prevData.title : '',
     description: prevData.description ? prevData.description : '',
   });
-
-  useEffect(() => {
-    if(collectionEdited !== null) dismiss();
-    }, [collectionEdited]);
+  const dismissAfterEditingCollection = () =>  {if(collectionEdited !== null) dismiss()};
+  useEffect(dismissAfterEditingCollection, [collectionEdited]);
     
   const handleChange = ({ target}) => {
     const { name, value} = target;

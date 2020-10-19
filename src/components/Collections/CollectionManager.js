@@ -16,10 +16,9 @@ const CollectionManager = ({ getCollections, resetCollection,  deleteCollectionB
     canEditCollection: false,
     collectionInfo: {}
   });
-
-  useEffect(() => {
-    getCollections();
-  } , [newCollection, collectionEdited, collectionDeleted]);
+  useEffect( getCollections,
+  [newCollection, collectionEdited, collectionDeleted] );
+  
 
   const handleCanAddCollectionRequest = (status) => {
     setCanAddCollection(status);

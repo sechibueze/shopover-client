@@ -7,10 +7,10 @@ import Title from '../Title/Title';
 
 const ProductItems = ({ getProductItems, productItems, title, count }) => {
 
-  useEffect(() => {
-    let filter = { visibility: true}
-    getProductItems(filter);
-  }, [])
+
+  let filter = { visibility: true}
+  const getProductItemByFilter = () => {getProductItems(filter)}
+  useEffect( getProductItemByFilter , [])
   const numItemsToDisplay = count ? count : productItems.length;
 
   return ( 

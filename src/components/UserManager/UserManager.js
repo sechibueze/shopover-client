@@ -8,11 +8,10 @@ import { loadUsers, deleteUsers } from '../../_actions/AuthActions';
 
 const UserManager = ({currentUser, loadUsers, deleteUsers, userData, prevUser }) => {
   
+  const filterID = currentUser.roles.includes('admin') ? null : currentUser._id;
+  const loadUserByFilter = () => loadUsers(filterID);
 
-  useEffect(() => {
-    const filterID = currentUser.roles.includes('admin') ? null : currentUser._id;
-    loadUsers(filterID);
-  } , [ prevUser]);
+  useEffect(loadUserByFilter, [ prevUser]);
 
   const handleDeleteUserById = id => {
     if (window.confirm('Are you sure?' + id)) {
