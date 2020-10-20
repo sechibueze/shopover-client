@@ -15,6 +15,18 @@ const ProductCard = ({history, product,  addProductToCart }) => {
     history.push('/cart')
   };
 
+  const generateRandomRating = () => {
+    let randRate = Math.floor(Math.random() * 10);
+    while (randRate >= 5) {
+      randRate = Math.floor(Math.random() * 10);    
+    }
+
+    return Array.from(Array(randRate).keys()).map(count => <i className="fa fa-star"></i> )
+
+    
+  }
+
+
   const { title, price, productImage } = product;
   return ( 
         <div className="col-3">
@@ -23,9 +35,8 @@ const ProductCard = ({history, product,  addProductToCart }) => {
             <p className="product-title"> { title && title } </p>
             <p className="product-" style={{ fontWeight: 'bold'}}> N { price && price } </p>
             <span className="product-card-rating"> 
-              <i className="fa fa-star"></i> 
-              <i className="fa fa-star"></i> 
-              <i className="fa fa-star"></i> 
+              
+              { generateRandomRating()}
               <i className="fa fa-star-half"></i> 
             </span>
             <div className="product-card-cta">

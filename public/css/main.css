@@ -164,26 +164,30 @@ html, body {
   padding: 0.3rem 0.5rem;
 }
 
-.title, .section-heading .section-title {
+.title, .section-title {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ff153b;
 }
 
-.sub-title, .section-heading .sub-title {
+.sub-title {
   line-height: 1.5;
   font-size: 0.8rem;
   text-align: left;
 }
 
-.section-heading {
-  display: block;
-  margin: auto;
-  padding: 1rem 0rem;
-  text-align: center;
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .section-title h3 {
+    font-size: 1rem;
+  }
 }
-.section-heading .sub-title {
+
+.sub-title {
   text-align: center;
 }
 
@@ -310,6 +314,11 @@ html, body {
   line-height: 4rem;
   background-color: #fff1f1;
 }
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0rem 0.5rem;
+  }
+}
 
 .logo-icon {
   width: 2rem;
@@ -331,7 +340,7 @@ html, body {
 }
 @media screen and (max-width: 480px) {
   .logo-name {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -774,6 +783,7 @@ table.table.cart-table th, table.table.cart-table td {
 
 .table {
   width: 100%;
+  overflow-x: auto;
 }
 .table thead {
   font-weight: bolder;
@@ -823,6 +833,14 @@ table.table.cart-table th, table.table.cart-table td {
     padding: 1.5rem;
   }
 }
+@media screen and (max-width: 480px) {
+  .feature-wrapper {
+    display: block;
+    color: inherit;
+    background-color: none;
+    padding: 9;
+  }
+}
 
 .feature-items {
   width: 55%;
@@ -857,9 +875,32 @@ table.table.cart-table th, table.table.cart-table td {
   align-content: flex-start;
   margin: 1rem 0;
 }
+@media screen and (max-width: 480px) {
+  .feature-card {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .feature-icon .icon {
+    color: #fff1f1;
+  }
+}
 
 .feature-caption {
   padding-left: 2rem;
+}
+@media screen and (max-width: 560px) {
+  .feature-caption {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .feature-caption {
+    padding: 0;
+    color: #fff1f1;
+  }
 }
 
 /**************** CONTACT***************/
@@ -909,6 +950,68 @@ table.table.cart-table th, table.table.cart-table td {
 
 .contact-info {
   display: inline;
+}
+@media screen and (max-width: 560px) {
+  .contact-info {
+    font-size: 0.8rem;
+  }
+}
+
+/**************** TESTIMONIAL ***************/
+#testimonial {
+  background-color: #555;
+  color: #f9f9f9;
+}
+
+.testimony {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.message::after, .message::before {
+  content: '"';
+  font-weight: bolder;
+  display: inline-block;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0.8rem;
+}
+@media screen and (max-width: 560px) {
+  .person {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.person img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.person ul {
+  padding-left: 1.5rem;
+}
+@media screen and (max-width: 560px) {
+  .person ul {
+    padding: 0;
+  }
+}
+
+.person ul li:first-of-type {
+  font-weight: bolder;
+}
+
+.person ul li:last-of-type {
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 #footer {

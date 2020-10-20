@@ -177,19 +177,28 @@ $unit: 8.33%;
     text-align: left;
 }
 
-.section-heading{
-  display: block;
-  margin: auto;
-  padding: 1rem 0rem;
-  text-align: center;
+// .section-heading{
+//   display: block;
+//   margin: auto;
+//   padding: 1rem 0rem;
+//   text-align: center;
   .section-title{
     @extend .title;
+    @media screen and (max-width: $xs-size) {
+      &{
+        font-size: 1.5rem;
+        width: 100%;
+      }
+      h3{
+        font-size: 1rem;
+      }
+    }
   }
   .sub-title{
     @extend .sub-title;
     text-align: center;
   }
-}
+// }
 
 .container{
   display: block;
@@ -318,7 +327,11 @@ $unit: 8.33%;
   padding: 0rem 2rem;
   line-height: 4rem;
   background-color: $light-color;
-  // overflow: no;
+  @media screen and (max-width: $xs-size) {
+    &{
+      padding: 0rem .5rem;
+    }
+  }
 }
 
 .logo-icon{
@@ -340,7 +353,7 @@ $unit: 8.33%;
   color: $primary-color;
   @media screen and (max-width: $xs-size) {
     &{
-      font-size: 1.6rem;
+      font-size: 1.1rem;
     }
   }
 
@@ -806,6 +819,7 @@ table.table.cart-table{
 
 .table{
   width: 100%;
+  overflow-x: auto;
   
   thead{
     font-weight: bolder;
@@ -859,6 +873,14 @@ table.table.cart-table{
       padding: 1.5rem;
     }
   }
+  @media screen and (max-width: $xs-size){
+    &{
+      display: block;
+      color: inherit;
+      background-color: none;
+      padding: 9;
+    }
+  }
   
 }
 .feature-items{
@@ -894,10 +916,35 @@ table.table.cart-table{
   justify-content: flex-start;
   align-content: flex-start;
   margin: 1rem 0;
+  @media screen and (max-width: $xs-size){
+    &{
+      display: block;
+      text-align: center;
+    }
+  }
 
+}
+.feature-icon{
+  @media screen and (max-width: $xs-size){
+    & .icon{
+      
+      color: $light-color;
+    }
+  }
 }
 .feature-caption{
   padding-left: 2rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      padding: 1rem;
+    }
+  }
+  @media screen and (max-width: $xs-size){
+    &{
+      padding: 0;
+      color: $light-color;
+    }
+  }
 }
 
 /**************** CONTACT***************/
@@ -952,9 +999,62 @@ table.table.cart-table{
 }
 .contact-info{
   display: inline;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      font-size: .8rem;
+    }
+  }
 }
 
+/**************** TESTIMONIAL ***************/
+#testimonial {
+  background-color: #555;
+  color: #f9f9f9;
+}
 
+.testimony {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.message::after, .message::before {
+  content: '"';
+  font-weight: bolder;
+  display: inline-block;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0.8rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
+}
+.person img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.person ul {
+  padding-left: 1.5rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    padding: 0;
+  }
+}
+.person ul li:first-of-type {
+  font-weight: bolder;
+}
+.person ul li:last-of-type {
+  font-size: 0.8rem;
+  font-style: italic;
+}
 #footer{
   padding: 1.5rem 1rem;
   background-color: #333;

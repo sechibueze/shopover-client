@@ -1,9 +1,29 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState} from 'react';
 import { Link } from 'react-router-dom';
 import ProductItems from '../ProductItems/ProductItems';
+import {APP_NAME } from '../../_utils/constants';
 
 const Home = () => {
+  const [data, setData] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    message: ''
+  });
+  const handleChange = ({ target }) => {
+    let { name, value } = target;
+    setData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    let message = 'Please send an email to the developer: sechibueze@gmail.com'
+    return alert(message);
+  }
+  const { firstname, lastname, email, message} = data;
   return ( 
     <Fragment>
       
@@ -12,7 +32,7 @@ const Home = () => {
           <div className="banner-caption">
             <h1>Shopping made simple</h1>
             <p>
-              Use ShopOver to bring quality to your budget, enjoy exclusive deals
+              Use { APP_NAME } to bring quality to your budget, enjoy exclusive deals
               and exciting offers from the comfort of your home.
             </p>
             <div className="banner-cta">
@@ -26,7 +46,9 @@ const Home = () => {
         </div>
       </header>
       <ProductItems title="Best Selling..." count="3"/> 
-
+      <section className="section" style={{margin: 'auto', textAlign: 'center'}}>
+        <Link to="/shop" className="btn btn-primary"> <span className="icon fa fa-shopping-cart" style={{color: '#F1F1F1'}}/> ShopOver NOW </Link>
+      </section>
     {/* Featured Product */}
       <section className="section" id="features">
         <h2 className="section-title point-br">Featured Product</h2>
@@ -36,39 +58,42 @@ const Home = () => {
             <div className="feature-items">
               <div className="feature-card">
                 <div className="feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+                  <span className="icon fa fa-shopping-bag" />
                 </div>
                 <div className="feature-caption">
-                  <h3>Responsive</h3>
+                  <h3>Shop on budget</h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, mollitia!
-                    sit amet consectetur adipisicing elit. Esse, mollitia!
+                    At { APP_NAME }, we offer quality products that match your budget. You don't need to
+                    break the bag or leave holes on your pocket to have a quality life
       
                   </p>
                 </div>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+                  <span className="icon fa fa-tags" />
                 </div>
                 <div className="feature-caption">
-                  <h3>Responsive</h3>
+                  <h3> Seamless shopping</h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, mollitia!
-                    sit amet consectetur adipisicing elit. Esse, mollitia!
+                    Making money can be difficult, spending it shouldn't be especially on all the things
+                    you love. With { APP_NAME }, you get no traffics,  exciting collection of all your 
+                    needs organized in category.
+                    So you don't have to spend a ton of time looking for it.
       
                   </p>
                 </div>
               </div>
               <div className="feature-card">
                 <div className="feature-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+                  <span className="icon far fa-credit-card" />
                 </div>
                 <div className="feature-caption">
-                  <h3>Responsive</h3>
+                  <h3>Secure payment</h3>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, mollitia!
-                    sit amet consectetur adipisicing elit. Esse, mollitia!
+                    Your credit card is secured with { APP_NAME }, use payment systems taht you trust
+                    - USSD, bank or credit card. We use SSL to provide high encryption of your data 
+                    at checkout. Our customers love us for that.
       
                   </p>
                 </div>
@@ -79,8 +104,30 @@ const Home = () => {
           </div>
         </div>
       </section> 
+      {/* Testimonials */}
+      <section className="section" id="testimonial">
+        <h2 className="section-title point-tl">Happy Customers</h2>
+        <div className="container">
+          <div className="testimony-wrapper">
+            <div className="testimony">
+              <div className="message">
+                I use { APP_NAME } for all my family and business shopping. It saves time and 
+                I get quality products for the best prices right at my doorstep at no extra cost.
+              </div>
+              <div className="person">
+                <img src="https://picsum.photos/50" alt="Testifier profile ID"/>
+                <ul>
+                  <li>Bolaji Ahmed</li>
+                  <li>Manager, Bella Foods</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
 
-    {/* Contact */}
+      {/* Contact */}
       <section className="section" id="contact">
         <h2 className="section-title point-tl"> Contact us </h2>
         <div className="container">
@@ -100,7 +147,7 @@ const Home = () => {
             <li> 
               <svg className="contact-icon" style={{width: '24px', height: '24px'}} viewBox="0 0 24 24">
                   <path fill="currentColor" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
-              </svg>  <span className="contact-info">lightworthng@gmail.com </span>
+              </svg>  <span className="contact-info">sechibueze@gmail.com </span>
             </li>
             <li> 
               <svg className="contact-icon" style={{width: '24px', height: '24px'}} viewBox="0 0 24 24">
@@ -110,25 +157,25 @@ const Home = () => {
             
           </ul>
           <div className="contact-form">
-            <form action="" className="form">
+            <form onSubmit={handleSubmit} className="form">
               <span className="tip mb-1"><sup>*</sup> Required</span>
               <div className="form-group-inline">
                 <div className="form-group">
                   <label htmlFor="firstname">Firstname<sup>*</sup></label>
-                  <input type="text" pattern="[A-Za-z]" className="form-control"  required name="firstname" id="firstname" placeholder="Firstname"/>
+                  <input type="text" onChange={handleChange} value={firstname}  className="form-control"  required name="firstname" id="firstname" placeholder="Firstname"/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="lastname">Lastname<sup>*</sup></label>
-                  <input type="text" pattern="[A-Za-z]" className="form-control" required name="lastname" id="lastname" placeholder="Lastname"/>
+                  <input type="text" onChange={handleChange} value={lastname}  className="form-control" required name="lastname" id="lastname" placeholder="Lastname"/>
                 </div>
               </div>
               <div className="form-group">
                 <label htmlFor="email">Email <sup>*</sup></label>
-                <input type="email" className="form-control" required name="email" id="email" placeholder="Email"/>
+                <input type="email" onChange={handleChange} value={email} className="form-control" required name="email" id="email" placeholder="Email"/>
               </div>
               <div className="form-group">
                 <label htmlFor="message">Message <sup>*</sup></label>
-                <textarea cols="20" rows="5" className="form-control"  required name="message" id="message" placeholder="message"></textarea>
+                <textarea cols="20" rows="5" onChange={handleChange} value={message} className="form-control"  required name="message" id="message" placeholder="message"></textarea>
 
               </div>
 
@@ -137,10 +184,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section class="" id="footer"> 
-
-        &copy; 2020 &nbsp; Lightworth Computing
-      </section>
+      
     </Fragment>
     
    );
