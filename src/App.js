@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import store from './store';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -35,6 +35,10 @@ const App = () => {
           <Authenticate path='/product-manager' exact component={ProductManager} />
           <Authenticate path='/collections' exact component={CollectionManager} />
           <Authenticate path='/user-manager' exact component={UserManager} />
+          <section className="section" id="footer"> 
+            &copy; 2020 &nbsp; <Link  style={{color: '#f7f7f7'}} to="https//sechibueze.github.io" target="_blank" rel="noreferrer noopener">Samuel Chibueze</Link>
+          </section>
+
         </Router>
       </Provider>
     </div>

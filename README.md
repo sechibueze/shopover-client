@@ -1,11 +1,15 @@
 # ShopOver - one stop online marketplace
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/60d5170b-883c-4f21-843a-74fdf67c7c82/deploy-status)](https://app.netlify.com/sites/shopover/deploys)
 
-> [application url](https://shopover.netlify.app)
+> [application url](https://shopover-client.firebaseapp.com)
 
-- Signup/Login
-- Browse items
-- Add items to cart
+## Features
+
+- User Signup/Login
+- Upgarde users to Admin and vice versa
+- Customers can create and edit their product
+- Admin can hide/show products
+Admin can create, edit collections
+- Users can add items to cart
 - Checkout
 - Pay with Paystack

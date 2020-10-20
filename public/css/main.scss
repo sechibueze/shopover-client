@@ -1,4 +1,13 @@
-
+$primary-color: #ff153b;
+$light-color: #fff1f1;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$dark-color: #555;
+$xs-size: 480px;
+$mobile-breakpoint: 560px;
+$tablet-breakpoint: 560px;
+$auth-sidebar-width: 13rem;
+$auth-sidebar-width-alt: -13rem ; //* $auth-sidebar-width;
 /********************************************************
 ************* START GLOBAL *******************************
 ****************************************************************/
@@ -15,17 +24,76 @@ html, body{
   line-height: 1.5;
   font-family: 'Montserrat', Roboto, Oxygen, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+.container, .container-fluid{
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.container-fluid{
+  width: 90%;
+}
+.section{
+  padding: 4rem 0rem;
+  border-bottom: 1px solid #F1F1F1;
+  @media screen and (max-width: $mobile-breakpoint) {
+    
+    padding: 2rem 0rem;
+
+  }
+
+  &-title{
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 1.8rem auto;
+    font-size: 1.8rem;
+    position: relative;
+    
+  }
+}
+
+.point{
+  position: relative;
+  &-tl::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px $primary-color solid;
+    border-width: thick;
+    z-index: 1;
+    top: -8px;
+    left: 40%;
+  }
+  &-tr::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px $primary-color solid;
+    border-width: thick;
+    z-index: 1;
+    top: -6px;
+    right: 40%;
+  }
+  &-bl::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px $primary-color solid;
+    border-width: thick;
+    z-index: 1;
+    bottom: 3px;
+    left: 38%;
+  }
+  &-br::after{
+    content: no-close-quote;
+    position: absolute;
+    border: 3px $primary-color solid;
+    border-width: thick;
+    z-index: 1;
+    bottom: 2px;
+    right: 38%;
+  }
+}
 
 
-$primary-color: #ff153b;
-$light-color: #fff1f1;
-$success-color: #28a745;
-$danger-color: #dc3545;
-$dark-color: #555;
-$mobile-breakpoint: 560px;
-$tablet-breakpoint: 560px;
-$auth-sidebar-width: 13rem;
-$auth-sidebar-width-alt: -13rem ; //* $auth-sidebar-width;
+
 
 .icon{
   margin-right: .2rem;
@@ -109,19 +177,28 @@ $unit: 8.33%;
     text-align: left;
 }
 
-.section-heading{
-  display: block;
-  margin: auto;
-  padding: 1rem 0rem;
-  text-align: center;
+// .section-heading{
+//   display: block;
+//   margin: auto;
+//   padding: 1rem 0rem;
+//   text-align: center;
   .section-title{
     @extend .title;
+    @media screen and (max-width: $xs-size) {
+      &{
+        font-size: 1.5rem;
+        width: 100%;
+      }
+      h3{
+        font-size: 1rem;
+      }
+    }
   }
   .sub-title{
     @extend .sub-title;
     text-align: center;
   }
-}
+// }
 
 .container{
   display: block;
@@ -250,7 +327,11 @@ $unit: 8.33%;
   padding: 0rem 2rem;
   line-height: 4rem;
   background-color: $light-color;
-  // overflow: no;
+  @media screen and (max-width: $xs-size) {
+    &{
+      padding: 0rem .5rem;
+    }
+  }
 }
 
 .logo-icon{
@@ -259,12 +340,22 @@ $unit: 8.33%;
   text-align: center;
   background-color: transparent;
   color: $primary-color;
+  @media screen and (max-width: $xs-size) {
+    &{
+      font-size: 1.6rem;
+    }
+  }
 
 }
 .logo-name{
   font-size: 2rem;
   font-weight: 600;
   color: $primary-color;
+  @media screen and (max-width: $xs-size) {
+    &{
+      font-size: 1.1rem;
+    }
+  }
 
 }
 .navlinks {
@@ -671,7 +762,7 @@ table.table.cart-table{
        }        
      }
      .sidebar-name{
-       font-size: 1.75rem;
+       font-size: 1.5rem;
      }
     .auth-sidebar .sidebar-actions{
       margin-top: 1.75rem;
@@ -725,36 +816,248 @@ table.table.cart-table{
 
 
 // Tables
-.editable{
-  background-color: $primary-color;
-  color: $light-color;
-}
+
 .table{
   width: 100%;
+  overflow-x: auto;
+  
+  thead{
+    font-weight: bolder;
+  }
+  th{
+    background-color: $primary-color;
+    color: $light-color;
+  }
+  tr:hover{
+    background-color: #ddd;
+  }
+  tr:nth-child(even){
+    background-color: #CCC;
+  }
+  th{
+    height: 2.5rem;
+    text-align: left;
+  }
+  td{
+    vertical-align: middle;
+  }
+  th, td{
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1ps solid #ddd;
+  }
+}
+
+/******************* FEATURED SECTION ********************/
+#features{
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      // background-image: url(../img/2.png);
+      background-image: url(https://picsum.photos/150/500);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    
+    }
+ }
+   
+}
+.feature-wrapper{
+  display: flex;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      display: block;
+      color: $light-color;
+      background-color: $primary-color;
+      opacity: .7;
+      padding: 1.5rem;
+    }
+  }
+  @media screen and (max-width: $xs-size){
+    &{
+      display: block;
+      color: inherit;
+      background-color: none;
+      padding: 9;
+    }
+  }
   
 }
-thead{
+.feature-items{
+  width: 55%;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      width: 100%;
+    }
+  }
+
+}
+
+.feature-product-image{
+  width: 45%;
+  background-color: #a4dcc3;
+  background-image: url(https://picsum.photos/150/500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  opacity: .7;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      display: none;
+    }
+  }
+}
+
+.feature-card{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 1rem 0;
+  @media screen and (max-width: $xs-size){
+    &{
+      display: block;
+      text-align: center;
+    }
+  }
+
+}
+.feature-icon{
+  @media screen and (max-width: $xs-size){
+    & .icon{
+      
+      color: $light-color;
+    }
+  }
+}
+.feature-caption{
+  padding-left: 2rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      padding: 1rem;
+    }
+  }
+  @media screen and (max-width: $xs-size){
+    &{
+      padding: 0;
+      color: $light-color;
+    }
+  }
+}
+
+/**************** CONTACT***************/
+
+.contact{
+  &-form, &-data{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  
+  &-data{
+    width: 39%;
+    li{
+      line-height: 2.3;
+    }
+    li:first-of-type{
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid $light-color;
+    }
+  }
+  &-form{
+    width: 60%;
+  }
+
+  @media screen and (max-width: $tablet-breakpoint){
+    &-form, &-data{
+      display: block;
+      width: 100%;
+      margin: auto;
+      li, li:first-of-type{
+        display: block;
+        width: 100%;
+        margin: auto;
+        padding: 0;
+        padding-bottom: 0rem;
+        border-bottom: none
+      }
+      li:last-of-type{
+        padding-bottom: 1.5rem;
+        border-bottom: 1px$light-color solid;
+      }
+    }
+  }
+}
+
+.contact-icon{
+  position: relative;
+  bottom: -8px;
+  color: $primary-color;
+  margin-right: 1rem;
+}
+.contact-info{
+  display: inline;
+  @media screen and (max-width: $mobile-breakpoint){
+    &{
+      font-size: .8rem;
+    }
+  }
+}
+
+/**************** TESTIMONIAL ***************/
+#testimonial {
+  background-color: #555;
+  color: #f9f9f9;
+}
+
+.testimony {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.message::after, .message::before {
+  content: '"';
+  font-weight: bolder;
+  display: inline-block;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0.8rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+
+}
+.person img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.person ul {
+  padding-left: 1.5rem;
+  @media screen and (max-width: $mobile-breakpoint){
+    padding: 0;
+  }
+}
+.person ul li:first-of-type {
   font-weight: bolder;
 }
-th{
-  background-color: $primary-color;
-  color: $light-color;
+.person ul li:last-of-type {
+  font-size: 0.8rem;
+  font-style: italic;
 }
-tr:hover{
-  background-color: #ddd;
-}
-tr:nth-child(even){
-  background-color: #CCC;
-}
-th{
-  height: 2.5rem;
-  text-align: left;
-}
-td{
-  vertical-align: middle;
-}
-th, td{
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1ps solid #ddd;
+#footer{
+  padding: 1.5rem 1rem;
+  background-color: #333;
+  color: #ddd;
+  
 }

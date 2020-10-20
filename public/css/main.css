@@ -16,6 +16,74 @@ html, body {
   font-family: "Montserrat", Roboto, Oxygen, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.container, .container-fluid {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+.container-fluid {
+  width: 90%;
+}
+
+.section {
+  padding: 4rem 0rem;
+  border-bottom: 1px solid #F1F1F1;
+}
+@media screen and (max-width: 560px) {
+  .section {
+    padding: 2rem 0rem;
+  }
+}
+.section-title {
+  display: block;
+  width: 50%;
+  text-align: center;
+  margin: 1.8rem auto;
+  font-size: 1.8rem;
+  position: relative;
+}
+
+.point {
+  position: relative;
+}
+.point-tl::after {
+  content: no-close-quote;
+  position: absolute;
+  border: 3px #ff153b solid;
+  border-width: thick;
+  z-index: 1;
+  top: -8px;
+  left: 40%;
+}
+.point-tr::after {
+  content: no-close-quote;
+  position: absolute;
+  border: 3px #ff153b solid;
+  border-width: thick;
+  z-index: 1;
+  top: -6px;
+  right: 40%;
+}
+.point-bl::after {
+  content: no-close-quote;
+  position: absolute;
+  border: 3px #ff153b solid;
+  border-width: thick;
+  z-index: 1;
+  bottom: 3px;
+  left: 38%;
+}
+.point-br::after {
+  content: no-close-quote;
+  position: absolute;
+  border: 3px #ff153b solid;
+  border-width: thick;
+  z-index: 1;
+  bottom: 2px;
+  right: 38%;
+}
+
 .icon {
   margin-right: 0.2rem;
   color: #ff153b;
@@ -96,26 +164,30 @@ html, body {
   padding: 0.3rem 0.5rem;
 }
 
-.title, .section-heading .section-title {
+.title, .section-title {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: #ff153b;
 }
 
-.sub-title, .section-heading .sub-title {
+.sub-title {
   line-height: 1.5;
   font-size: 0.8rem;
   text-align: left;
 }
 
-.section-heading {
-  display: block;
-  margin: auto;
-  padding: 1rem 0rem;
-  text-align: center;
+@media screen and (max-width: 480px) {
+  .section-title {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .section-title h3 {
+    font-size: 1rem;
+  }
 }
-.section-heading .sub-title {
+
+.sub-title {
   text-align: center;
 }
 
@@ -242,6 +314,11 @@ html, body {
   line-height: 4rem;
   background-color: #fff1f1;
 }
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0rem 0.5rem;
+  }
+}
 
 .logo-icon {
   width: 2rem;
@@ -250,11 +327,21 @@ html, body {
   background-color: transparent;
   color: #ff153b;
 }
+@media screen and (max-width: 480px) {
+  .logo-icon {
+    font-size: 1.6rem;
+  }
+}
 
 .logo-name {
   font-size: 2rem;
   font-weight: 600;
   color: #ff153b;
+}
+@media screen and (max-width: 480px) {
+  .logo-name {
+    font-size: 1.1rem;
+  }
 }
 
 @media screen and (max-width: 560px) {
@@ -635,7 +722,7 @@ table.table.cart-table th, table.table.cart-table td {
 }
 
 .sidebar-name {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
 }
 
 .auth-sidebar .sidebar-actions {
@@ -694,45 +781,243 @@ table.table.cart-table th, table.table.cart-table td {
   overflow-x: auto;
 }
 
-.editable {
-  background-color: #ff153b;
-  color: #fff1f1;
-}
-
 .table {
   width: 100%;
+  overflow-x: auto;
 }
-
-thead {
+.table thead {
   font-weight: bolder;
 }
-
-th {
+.table th {
   background-color: #ff153b;
   color: #fff1f1;
 }
-
-tr:hover {
+.table tr:hover {
   background-color: #ddd;
 }
-
-tr:nth-child(even) {
+.table tr:nth-child(even) {
   background-color: #CCC;
 }
-
-th {
+.table th {
   height: 2.5rem;
   text-align: left;
 }
-
-td {
+.table td {
   vertical-align: middle;
 }
-
-th, td {
+.table th, .table td {
   padding: 1rem;
   text-align: left;
   border-bottom: 1ps solid #ddd;
+}
+
+/******************* FEATURED SECTION ********************/
+@media screen and (max-width: 560px) {
+  #features {
+    background-image: url(https://picsum.photos/150/500);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+.feature-wrapper {
+  display: flex;
+}
+@media screen and (max-width: 560px) {
+  .feature-wrapper {
+    display: block;
+    color: #fff1f1;
+    background-color: #ff153b;
+    opacity: 0.7;
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .feature-wrapper {
+    display: block;
+    color: inherit;
+    background-color: none;
+    padding: 9;
+  }
+}
+
+.feature-items {
+  width: 55%;
+}
+@media screen and (max-width: 560px) {
+  .feature-items {
+    width: 100%;
+  }
+}
+
+.feature-product-image {
+  width: 45%;
+  background-color: #a4dcc3;
+  background-image: url(https://picsum.photos/150/500);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1rem;
+  opacity: 0.7;
+}
+@media screen and (max-width: 560px) {
+  .feature-product-image {
+    display: none;
+  }
+}
+
+.feature-card {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 1rem 0;
+}
+@media screen and (max-width: 480px) {
+  .feature-card {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .feature-icon .icon {
+    color: #fff1f1;
+  }
+}
+
+.feature-caption {
+  padding-left: 2rem;
+}
+@media screen and (max-width: 560px) {
+  .feature-caption {
+    padding: 1rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .feature-caption {
+    padding: 0;
+    color: #fff1f1;
+  }
+}
+
+/**************** CONTACT***************/
+.contact-form, .contact-data {
+  display: inline-block;
+  vertical-align: top;
+}
+.contact-data {
+  width: 39%;
+}
+.contact-data li {
+  line-height: 2.3;
+}
+.contact-data li:first-of-type {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #fff1f1;
+}
+.contact-form {
+  width: 60%;
+}
+@media screen and (max-width: 560px) {
+  .contact-form, .contact-data {
+    display: block;
+    width: 100%;
+    margin: auto;
+  }
+  .contact-form li, .contact-form li:first-of-type, .contact-data li, .contact-data li:first-of-type {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+    padding-bottom: 0rem;
+    border-bottom: none;
+  }
+  .contact-form li:last-of-type, .contact-data li:last-of-type {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px #fff1f1 solid;
+  }
+}
+
+.contact-icon {
+  position: relative;
+  bottom: -8px;
+  color: #ff153b;
+  margin-right: 1rem;
+}
+
+.contact-info {
+  display: inline;
+}
+@media screen and (max-width: 560px) {
+  .contact-info {
+    font-size: 0.8rem;
+  }
+}
+
+/**************** TESTIMONIAL ***************/
+#testimonial {
+  background-color: #555;
+  color: #f9f9f9;
+}
+
+.testimony {
+  display: block;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.message::after, .message::before {
+  content: '"';
+  font-weight: bolder;
+  display: inline-block;
+}
+
+.person {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 0.8rem;
+}
+@media screen and (max-width: 560px) {
+  .person {
+    display: block;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.person img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.person ul {
+  padding-left: 1.5rem;
+}
+@media screen and (max-width: 560px) {
+  .person ul {
+    padding: 0;
+  }
+}
+
+.person ul li:first-of-type {
+  font-weight: bolder;
+}
+
+.person ul li:last-of-type {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+#footer {
+  padding: 1.5rem 1rem;
+  background-color: #333;
+  color: #ddd;
 }
 
 /*# sourceMappingURL=main.css.map */

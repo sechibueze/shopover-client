@@ -12,7 +12,7 @@ const Navbar = ({ isAuthenticated, cartItems, logout }) => {
       <input type="checkbox" id="navlink-control" />
       <div className="navbar-wrapper">
         <Link to='/' className="logo">
-          <span className="logo-icon fa fa-users fa-2x" />
+          <span className="logo-icon fas fa-shopping-basket fa-2x" />
           <span className="logo-name"> { APP_NAME } </span>
         </Link>
 
