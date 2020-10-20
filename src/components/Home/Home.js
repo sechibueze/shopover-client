@@ -64,7 +64,7 @@ const Home = () => {
                   <h3>Shop on budget</h3>
                   <p>
                     At { APP_NAME }, we offer quality products that match your budget. You don't need to
-                    break the bag or leave holes on your pocket to have a quality life
+                    break the bank or leave holes in your pocket to have a quality life
       
                   </p>
                 </div>
